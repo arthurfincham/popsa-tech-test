@@ -4,6 +4,18 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+Use Node `v20.10.0`
+
+```bash
+nvm use 20.10.0
+```
+
+Install dependencies
+
+```bash
+npm install
+```
+
 Run the development server:
 
 ```bash
