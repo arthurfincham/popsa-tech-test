@@ -1,6 +1,12 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Popsa.com - Arthur Fincham React Frontend test skeleton
 
-# Popsa.com - React Frontend test skeleton
+## Notes
+
+I decided to use Typescript to improve the dev experience, especially with changing the state of the items as it seemed quite complicated.
+
+Chrome's mobile emulator seemed strange with touch event on images...
+
+The animation is not perfectly aligned with the spec sadly; it's my best attempt!
 
 ## Getting Started
 
@@ -25,10 +31,6 @@ yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-## Notes
-
-Feel free to modify the source code in anyway that you see fit.
 
 ---
 
