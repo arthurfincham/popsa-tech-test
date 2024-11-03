@@ -1,14 +1,15 @@
+import { DndContext } from '@dnd-kit/core';
 import { Wrapper } from '../styles/printPage.styles';
 import Page from './page';
 
 export default function PrintPage({ data }: { data: PageData[] }) {
   return (
-    <>
-      <Wrapper>
+    <Wrapper>
+      <DndContext>
         {Object.values(data).map((entry, i) => {
           return <Page key={i} entry={entry} />;
         })}
-      </Wrapper>
-    </>
+      </DndContext>
+    </Wrapper>
   );
 }
