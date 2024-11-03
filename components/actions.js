@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 const StyledActions = styled.div`
   display: flex;
@@ -20,7 +20,7 @@ const ButtonLayout = styled(Icon)``;
 
 const ButtonMenu = styled(Icon)``;
 
-export default function Actions({ data }) {
+export default function Actions() {
   return (
     <>
       <StyledActions>
