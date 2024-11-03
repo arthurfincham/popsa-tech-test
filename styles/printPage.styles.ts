@@ -29,6 +29,12 @@ export const PageLayout = styled.div`
   padding: 20px;
   margin: 17px 0 42px;
   justify-content: space-between;
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 10px;
+    max-width: 90vw;
+    gap: 10px;
+  }
 `;
 
 const fadeIn = keyframes`
@@ -43,7 +49,9 @@ const fadeIn = keyframes`
 export const PrintPhoto = styled.div`
   width: calc(50% - 10px);
   animation: ${fadeIn} 0.3s ease-in;
-
+  @media (max-width: 768px) {
+    width: 100%;
+  }
   img {
     max-width: 100%;
   }

@@ -2,8 +2,16 @@ import Head from 'next/head';
 import PrintPage from '../components/printPage';
 import styled from 'styled-components';
 
+const Layout = styled.div`
+  margin: 0 auto;
+  max-width: 100vw;
+  padding: 0 24px;
+  width: 100%;
+`;
+
 const PageHeader = styled.div`
-  width: 600px;
+  width: min(600px, 100%);
+
   margin: auto;
   border-bottom: 1px solid #e4e4e4;
   margin-bottom: 42px;
@@ -26,7 +34,7 @@ const PageHeader = styled.div`
 
 export default function Testpage() {
   return (
-    <div>
+    <Layout>
       <Head>
         <title>Test Page | Popsa.com</title>
         <meta name="description" content="" />
@@ -61,6 +69,6 @@ export default function Testpage() {
           },
         ]}
       />
-    </div>
+    </Layout>
   );
 }
