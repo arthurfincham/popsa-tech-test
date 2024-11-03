@@ -1,4 +1,12 @@
-import { DndContext, DragOverlay } from '@dnd-kit/core';
+import {
+  DndContext,
+  DragOverlay,
+  KeyboardSensor,
+  PointerSensor,
+  TouchSensor,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core';
 import { Wrapper } from '../styles/printPage.styles';
 import Page from './page';
 import {
@@ -9,6 +17,7 @@ import {
 import { useState } from 'react';
 import { snapCenterToCursor } from '@dnd-kit/modifiers';
 import DragOverlayComponent from './dragOverlayComponent';
+import { sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 
 export default function PrintPage({ data }: { data: PageData[] }) {
   const dataWithIds = addIdsToImages(data);
@@ -16,6 +25,14 @@ export default function PrintPage({ data }: { data: PageData[] }) {
   const [items, setItems] = useState<SortablePageData[]>(dataWithIds);
 
   const [dragUrl, setDragUrl] = useState<string | null>(null);
+
+  const sensors = useSensors(
+    useSensor(TouchSensor),
+    useSensor(PointerSensor),
+    useSensor(KeyboardSensor, {
+      coordinateGetter: sortableKeyboardCoordinates,
+    })
+  );
 
   const handleDragStart = (event: any) => {
     const { active } = event;
@@ -54,7 +71,11 @@ export default function PrintPage({ data }: { data: PageData[] }) {
 
   return (
     <Wrapper>
-      <DndContext onDragStart={handleDragStart} onDragEnd={handleDragEnd}>
+      <DndContext
+        sensors={sensors}
+        onDragStart={handleDragStart}
+        onDragEnd={handleDragEnd}
+      >
         {items.map((entry: SortablePageData, i: number) => {
           return <Page key={i} entry={entry} />;
         })}
