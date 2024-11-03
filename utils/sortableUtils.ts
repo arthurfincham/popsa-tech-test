@@ -41,7 +41,7 @@ export const swapItems = (
   items: SortablePageData[],
   activeItemIndex: ItemIndex,
   overItemIndex: ItemIndex
-) => {
+): SortablePageData[] => {
   const activeItem =
     items[activeItemIndex.pageIndex].images[activeItemIndex.imgIndex];
   const overItem =
@@ -51,4 +51,6 @@ export const swapItems = (
     items[activeItemIndex.pageIndex].images[activeItemIndex.imgIndex],
     items[overItemIndex.pageIndex].images[overItemIndex.imgIndex],
   ] = [overItem, activeItem];
+
+  return items;
 };

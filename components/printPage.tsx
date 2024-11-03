@@ -13,7 +13,7 @@ import DragOverlayComponent from './dragOverlayComponent';
 export default function PrintPage({ data }: { data: PageData[] }) {
   const dataWithIds = addIdsToImages(data);
 
-  const [items, setItems] = useState(dataWithIds);
+  const [items, setItems] = useState<SortablePageData[]>(dataWithIds);
 
   const [dragUrl, setDragUrl] = useState<string | null>(null);
 
@@ -23,7 +23,7 @@ export default function PrintPage({ data }: { data: PageData[] }) {
     if (active.id) {
       const allImages = items.flatMap((page) => page.images);
       const { url } = allImages.find((img) => img.id === active.id) || {};
-      setDragUrl(url);
+      setDragUrl(url || null);
     }
   };
 
