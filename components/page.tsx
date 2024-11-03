@@ -8,8 +8,14 @@ import {
   PageLayout,
   PrintPhoto,
 } from '../styles/printPage.styles';
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+} from '@dnd-kit/sortable';
+import SortableItem from './sortableImage';
 
 export default function Page({ entry }: { entry: SortablePageData }) {
+  const imageIds = entry.images.map((image) => image.id);
   return (
     <PrintWrapper>
       <Header>
@@ -17,13 +23,14 @@ export default function Page({ entry }: { entry: SortablePageData }) {
         <Actions />
       </Header>
       <PageLayout>
-        {entry.images.map((image: SortableItem) => {
-          return (
-            <PrintPhoto key={image.id}>
-              <img src={image.url} alt="" />
-            </PrintPhoto>
-          );
-        })}
+        <SortableContext
+          items={imageIds}
+          strategy={verticalListSortingStrategy}
+        >
+          {entry.images.map((image: SortableItem) => {
+            return <SortableItem key={image.id} image={image} />;
+          })}
+        </SortableContext>
       </PageLayout>
     </PrintWrapper>
   );
