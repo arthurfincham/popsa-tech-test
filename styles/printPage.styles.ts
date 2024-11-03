@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 export const Wrapper = styled.div`
   width: 600px;
@@ -31,8 +31,18 @@ export const PageLayout = styled.div`
   justify-content: space-between;
 `;
 
+const fadeIn = keyframes`
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+`;
+
 export const PrintPhoto = styled.div`
   width: calc(50% - 10px);
+  animation: ${fadeIn} 0.3s ease-in;
 
   img {
     max-width: 100%;
