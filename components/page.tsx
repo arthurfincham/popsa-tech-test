@@ -9,7 +9,7 @@ import {
   PrintPhoto,
 } from '../styles/printPage.styles';
 
-export default function Page({ entry }: { entry: PageData }) {
+export default function Page({ entry }: { entry: SortablePageData }) {
   return (
     <PrintWrapper>
       <Header>
@@ -17,10 +17,10 @@ export default function Page({ entry }: { entry: PageData }) {
         <Actions />
       </Header>
       <PageLayout>
-        {entry.images.map((image) => {
+        {entry.images.map((image: SortableItem) => {
           return (
-            <PrintPhoto key={image}>
-              <img src={image} alt="" />
+            <PrintPhoto key={image.id}>
+              <img src={image.url} alt="" />
             </PrintPhoto>
           );
         })}
