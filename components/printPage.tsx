@@ -21,15 +21,13 @@ export default function PrintPage({ data }: { data: PageData[] }) {
     const { active } = event;
 
     if (active.id) {
-      const [pageIndex, imageIndex] = active.id.split('_');
-      const url = items[pageIndex].images[imageIndex].url;
-
+      const allImages = items.flatMap((page) => page.images);
+      const { url } = allImages.find((img) => img.id === active.id) || {};
       setDragUrl(url);
     }
   };
 
   const handleDragEnd = (event: any) => {
-    setDragUrl(null);
     const { active, over } = event;
 
     if (!over) return;
@@ -50,6 +48,8 @@ export default function PrintPage({ data }: { data: PageData[] }) {
         return newItems;
       });
     }
+
+    setDragUrl(null);
   };
 
   return (
