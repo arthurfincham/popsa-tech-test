@@ -26,6 +26,7 @@ The project follows a standard React project structure with the following key di
 
 - **Typescript** Typescript has been used for files that were edited. I installed TS to improve the dev experience in files I edited. It was helpful with complicated data structures and state management. If I had more time I would have migrated the whole project to Typescript.
 - **Animations** The drop animation could be better. I found it difficult to recreate the spec animation perfectly; this is my best attempt!
+- **Testing** If I had more time I would have added some unit tests for `sortableUtils.ts` as well as some E2E tests for the user journey.
 
 ## Installation
 
