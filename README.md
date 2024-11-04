@@ -24,7 +24,7 @@ The project follows a standard React project structure with the following key di
 
 ## Notes
 
-- **Typescript** Typescript has been used for files that were edited. I installed TS to improve the dev experience in files I edited. It was helpful with complicated data structures and state management.
+- **Typescript** Typescript has been used for files that were edited. I installed TS to improve the dev experience in files I edited. It was helpful with complicated data structures and state management. If I had more time I would have migrated the whole project to Typescript.
 - **Animations** The drop animation could be better. I found it difficult to recreate the spec animation perfectly; this is my best attempt!
 
 ## Installation
